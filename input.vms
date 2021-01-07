@@ -1,0 +1,6 @@
+mov ax, 0
+loop:
+add ax, 1
+log ax
+cmp ax, 10
+jn loop
