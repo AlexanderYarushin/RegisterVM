@@ -145,7 +145,10 @@ void memoryPrint()
 void execute(const char* inputFileName)
 {
     ifstream input(inputFileName, std::ios::in | std::ios::binary);
-
+    if (!input.is_open()) {
+        cout << "Failed to open file: " << inputFileName << ". Execute failed." << endl;
+        return;
+    }
     string result;
 
     int i = 0;
@@ -245,6 +248,10 @@ void compile(const char* inputFileName, const char* outputFileName)
 {
     string result;
     ifstream input(inputFileName);
+    if (!input.is_open()) {
+        cout << "Failed open file: " << inputFileName << ". Compiled failed." << endl;
+        return;
+    }
     ofstream output(outputFileName, std::ios::out | std::ios::binary);
 
     int lineNum = 0;
